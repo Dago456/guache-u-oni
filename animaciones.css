@@ -1,0 +1,112 @@
+/* ONIRIKO · animaciones aditivas
+   No modifican estructura, textos ni enlaces. Todo está bajo .o-js:
+   si el JS no carga o el usuario pide menos movimiento, la página se ve igual que antes.
+   Se usan las propiedades individuales translate / scale para no pisar los transform de style.css. */
+
+:root{--o-ease:cubic-bezier(.22,1,.36,1);--o-accent:#b9492b}
+html{scroll-behavior:smooth}
+
+/* ---- progreso de lectura ---- */
+.o-prog{position:fixed;inset:0 0 auto 0;height:2px;background:var(--o-accent);transform-origin:0 50%;transform:scaleX(0);z-index:9999;pointer-events:none}
+
+/* ---- 1. Secuencia de entrada (una sola, al cargar) ---- */
+.o-js .nav{animation:o-down .9s var(--o-ease) backwards}
+.o-js .hero .kicker{animation:o-up 1s .2s var(--o-ease) backwards}
+.o-js .hero-sub{animation:o-up 1s .75s var(--o-ease) backwards}
+.o-js .hero .actions{animation:o-up 1s .9s var(--o-ease) backwards}
+.o-js .hero-art{animation:o-wipe 1.5s .45s var(--o-ease) backwards}
+.o-js .hero-art img{animation:o-float 8s ease-in-out 2.2s infinite alternate}
+.o-js .shop-hero .eyebrow{animation:o-up 1s .2s var(--o-ease) backwards}
+.o-js .shop-description{animation:o-up 1s .75s var(--o-ease) backwards}
+.o-js .shop-note{animation:o-up 1s .95s var(--o-ease) backwards}
+.o-js .contact-intro .eyebrow{animation:o-up 1s .2s var(--o-ease) backwards}
+.o-js .contact-intro>p:last-child{animation:o-up 1s .8s var(--o-ease) backwards}
+@keyframes o-down{from{opacity:0;translate:0 -24px}}
+@keyframes o-up{from{opacity:0;translate:0 18px}}
+@keyframes o-wipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes o-float{to{translate:0 -8px}}
+
+/* ---- 2. Titulares: salen de una máscara, línea por línea ---- */
+.o-line{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.o-line-in{display:block}
+.o-js .o-line-in{translate:0 110%;transition:translate 1.05s var(--o-ease);transition-delay:calc(var(--i,0) * .11s)}
+.o-js .hero h1 .o-line-in,.o-js .shop-hero h1 .o-line-in,.o-js .contact-intro h1 .o-line-in{transition-delay:calc(.35s + var(--i,0) * .13s)}
+.o-js .o-in .o-line-in,.o-js .o-line-in.o-in{translate:0 0}
+
+/* ---- 3. Imágenes: se destapan y asientan ---- */
+/* El recorte va en el hijo (no en la caja observada) y al terminar, clip-path vuelve a "none" para no recortar nada que sobresalga de la caja (logos, sombras). */
+.o-js .media-placeholder:not(.o-in)>*{clip-path:inset(0 0 100% 0)}
+.o-js .media-placeholder.o-in>*{animation:o-wipe 1.3s var(--o-ease) backwards}
+.o-js .media-placeholder img{scale:1.14;transition:scale 1.8s var(--o-ease)}
+.o-js .media-placeholder.o-in img{scale:1}
+
+/* ---- 4. Bloques de texto: aparición corta ---- */
+.o-js .o-fade{opacity:0;translate:0 14px;transition:opacity .9s var(--o-ease),translate .9s var(--o-ease);transition-delay:calc(var(--i,0) * .09s)}
+.o-js .o-fade.o-in{opacity:1;translate:0 0}
+
+/* ---- 5. Respuesta a acciones ---- */
+/* filtros / render de productos */
+.o-js #products>*:not(.o-card){opacity:0}
+.o-js .o-card{animation:o-card .75s var(--o-ease) backwards;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes o-card{from{opacity:0;translate:0 16px;scale:.97}}
+.btn,.filter,#products>*{transition:translate .5s var(--o-ease)}
+.btn:hover,.filter:hover{translate:0 -2px}
+#products>*:hover{translate:0 -4px}
+/* contador de piezas */
+.o-js #products>.o-out{opacity:0;scale:.96;transition:opacity .28s var(--o-ease),scale .28s var(--o-ease)}
+.o-js .o-tick{animation:o-up .5s var(--o-ease)}
+/* ventana de pieza */
+.o-js .o-pop{animation:o-pop .6s var(--o-ease) backwards}
+@keyframes o-pop{from{opacity:0;translate:0 20px;scale:.97}}
+.close{transition:rotate .5s var(--o-ease)}
+.close:hover{rotate:90deg}
+/* bolsa */
+.o-js .o-bump{animation:o-bump .6s var(--o-ease)}
+@keyframes o-bump{30%{scale:1.25}60%{scale:.92}100%{scale:1}}
+/* barra de navegación: se esconde al bajar, vuelve al subir */
+.nav{transition:translate .6s var(--o-ease)}
+.nav.o-hide{translate:0 -110%}
+
+/* ---- Tienda: tarjetas alineadas ----
+   Todas del mismo alto, imagen con proporción única, precio y botón siempre a la misma altura.
+   Cambia la proporción de las fotos con --o-ratio (por ejemplo 1/1 o 3/4). */
+.shop-products{--o-ratio:4/5;align-items:stretch}
+.shop-products>.product{display:flex;flex-direction:column;height:100%;min-width:0}
+.shop-products .product-visual{position:relative;overflow:hidden;aspect-ratio:var(--o-ratio);flex:none}
+.shop-products .shop-product-image{display:block;width:100%;height:100%;object-fit:cover;transition:scale 1.2s var(--o-ease)}
+.shop-products .product:hover .shop-product-image{scale:1.04}
+.shop-products .product-info{display:flex;flex-direction:column;flex:1 1 auto}
+.shop-products .product-name{min-height:2.5em;line-height:1.25}
+.shop-products .product-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.shop-products .product-info .view{margin-top:auto;align-self:flex-start}
+
+/* ---- Imágenes dentro del margen ----
+   Cualquier imagen nueva, del tamaño que sea, se ajusta al ancho de su caja:
+   no se sale de la columna ni del margen de la página. */
+img{max-width:100%}
+.hero>*,.story>*,.manifesto>*,.contact>*,.hero-copy,.hero-art{min-width:0}
+.hero-art,.image-placeholder,.media-placeholder{max-width:100%;overflow:hidden}
+.media-placeholder>span{display:block;width:100%;height:100%}
+.hero-art img,.image-placeholder img,.media-placeholder img{display:block;width:100%;max-width:100%;height:100%;object-fit:cover}
+/* el logo de "Sobre nosotros" se muestra completo, sin recortes */
+.story .media-placeholder:not(.small) img{object-fit:contain}
+
+/* ---- Contacto: el campo activo se marca ---- */
+.form-field label{transition:color .3s var(--o-ease),translate .4s var(--o-ease)}
+.form-field input,.form-field select,.form-field textarea{transition:border-color .3s var(--o-ease)}
+.form-field:focus-within label{color:var(--o-accent);translate:4px 0}
+
+/* ---- Logo del inicio: se desarma y se vuelve a coser ---- */
+.o-logo-word{display:inline-flex}
+.o-ch{display:inline-block;transition:translate .55s var(--o-ease),rotate .55s var(--o-ease),color .3s;transition-delay:calc(var(--i,0) * 22ms)}
+.o-logo-on .o-ch{translate:var(--x,0) var(--y,0);rotate:var(--r,0deg)}
+.o-logo-on .o-ch:nth-child(odd){color:var(--o-accent)}
+.logo-mark-placeholder{display:inline-block;transition:rotate .7s var(--o-ease),scale .7s var(--o-ease)}
+.o-logo-on .logo-mark-placeholder{rotate:-18deg;scale:1.1}
+.o-spin{animation:o-spin .9s var(--o-ease)}
+@keyframes o-spin{from{rotate:0deg}to{rotate:360deg}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation:none!important;transition:none!important}
+}

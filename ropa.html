@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ONIRIKO — Piezas renovadas</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ropa.css">
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="animaciones.css">
+<script src="script.js"></script>
+<script src="animaciones.js" defer></script>
+</body>
+</head>
+
+<body>
+<div class="app">
+
+    <!-- NAVEGACIÓN -->
+    <header class="nav">
+
+        <a class="logo" href="guache.html">
+            <span class="logo-mark-placeholder">
+                <img src="img/onrirko sant-02.png"
+                     alt="Logo ONIRIKO">
+            </span>
+            ONIRIKO.
+        </a>
+        
+
+        <nav class="navlinks">
+            <a href="guache.html">Inicio</a>
+            <a href="ropa.html" class="active">Ropa</a>
+    
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <a class="bag" href="#catalogo" aria-label="Ver catálogo">
+            <span>◒</span>
+        </a>
+
+    </header>
+
+    <main>
+
+        <!-- ENCABEZADO DE LA TIENDA -->
+        <section class="shop-hero">
+
+            <div class="eyebrow">
+                BOGOTÁ · COLOMBIA / COLECCIÓN RENOVADA
+            </div>
+
+            <div class="shop-title-row">
+
+                <h1>
+                    VISTE
+                    <br>
+                    <em>otra historia.</em>
+                </h1>
+
+                <div class="shop-description">
+                    <p>
+                        No hacemos prendas en serie.
+                        Transformamos lo que ya existe en piezas
+                        únicas que hablan de ti, de la calle y
+                        de las historias que merecen continuar.
+                    </p>
+
+                    <a href="#catalogo" class="btn primary">
+                        Explorar colección ↘
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="shop-note">
+                <span>01 — PIEZAS ÚNICAS</span>
+                <span>02 — ROPA REINTERVENIDA</span>
+                <span>03 — NINGUNA ES IGUAL A OTRA</span>
+            </div>
+
+        </section>
+
+        <!-- FRANJA -->
+        <div class="marquee">
+            <span>
+                NO ES NUEVO · ES RENOVADO ·
+                CADA PRENDA TIENE MEMORIA ·
+                VISTE DIFERENTE ·
+                NO ES NUEVO · ES RENOVADO ·
+                CADA PRENDA TIENE MEMORIA ·
+                VISTE DIFERENTE ·
+            </span>
+        </div>
+
+        <!-- CATÁLOGO -->
+        <section class="shop-catalog" id="catalogo">
+
+            <div class="section-head">
+
+                <div>
+                    <div class="eyebrow">01 / Catálogo</div>
+
+                    <h2 class="section-title">
+                        ENCUENTRA
+                        <br>
+                        TU PIEZA.
+                    </h2>
+                </div>
+
+                <p class="section-intro">
+                    Prendas recuperadas, reconstruidas e intervenidas
+                    para crear una nueva forma de vestir.
+                    Explora la colección y encuentra algo que
+                    no se repita.
+                </p>
+
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filters">
+
+                <button class="filter active" data-filter="all">
+                    Todo
+                </button>
+
+                <button class="filter" data-filter="camisas">
+                    Camisas
+                </button>
+
+                <button class="filter" data-filter="chaquetas">
+                    Chaquetas
+                </button>
+
+                <button class="filter" data-filter="pantalones">
+                    Pantalones
+                </button>
+
+                <button class="filter" data-filter="accesorios">
+                    Accesorios
+                </button>
+
+            </div>
+
+            <div class="shop-results">
+                <span id="productCount">06 PIEZAS</span>
+                <span>COLECCIÓN / ONIRIKO</span>
+            </div>
+
+            <!-- PRODUCTOS -->
+            <div class="products shop-products" id="products">
+
+                <article class="product"
+                    data-category="chaquetas"
+                    data-name="Chaqueta Fragmentos"
+                    data-price="180000"
+                    data-description="Chaqueta intervenida con contrastes textiles y detalles de reconstrucción. Una pieza urbana con una historia propia."
+                    data-image="img/chaqueta1.png">
+
+                    <div class="product-visual">
+                        <span class="tag">PIEZA ÚNICA</span>
+                        <img src="img/WhatsApp Image 2026-10-21 at 10.22.40 PM.jpeg"
+                             alt="Chaqueta Fragmentos"
+                             class="shop-product-image">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-name">Chaqueta Fragmentos</div>
+
+                        <div class="product-meta">
+                            <span>Chaquetas / Rework</span>
+                            <span>$180.000</span>
+                        </div>
+
+                        <button class="view" type="button">
+                            Ver pieza ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product"
+                    data-category="camisas"
+                    data-name="Camisa Desfase"
+                    data-price="95000"
+                    data-description="Camisa recuperada e intervenida con una composición gráfica asimétrica. Pensada para quienes buscan vestir fuera de lo convencional."
+                    data-image="img/camisa1.png">
+
+                    <div class="product-visual">
+                        <span class="tag">RECONSTRUIDA</span>
+                        <img src="img/camsia.jpeg"
+                             alt="Camisa Desfase"
+                             class="shop-product-image">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-name">Camisa Desfase</div>
+
+                        <div class="product-meta">
+                            <span>Camisas / Rework</span>
+                            <span>$95.000</span>
+                        </div>
+
+                        <button class="view" type="button">
+                            Ver pieza ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product"
+                    data-category="pantalones"
+                    data-name="Pantalón Territorio"
+                    data-price="145000"
+                    data-description="Pantalón intervenido con una estética utilitaria y urbana. Sus detalles y materiales convierten cada unidad en una pieza irrepetible."
+                    data-image="img/pantalon1.png">
+
+                    <div class="product-visual">
+                        <span class="tag">REWORK</span>
+                        <img src="img/WhatsApp Image 2026-10-21 at 10.04.07 PM.jpeg"
+                             alt="Pantalón Territorio"
+                             class="shop-product-image">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-name">Pantalón Territorio</div>
+
+                        <div class="product-meta">
+                            <span>Pantalones / Rework</span>
+                            <span>$145.000</span>
+                        </div>
+
+                        <button class="view" type="button">
+                            Ver pieza ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product"
+                    data-category="camisas"
+                    data-name="Camisa Memoria"
+                    data-price="85000"
+                    data-description="Prenda recuperada con una nueva identidad visual. Los detalles de su intervención conservan el carácter de los materiales originales."
+                    data-image="img/camisa2.png">
+
+                    <div class="product-visual">
+                        <span class="tag">PIEZA ÚNICA</span>
+                        <img src="img/camisa blanca.jfif"
+                             alt="Camisa Memoria"
+                             class="shop-product-image">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-name">Camisa Memoria</div>
+
+                        <div class="product-meta">
+                            <span>Camisas / Intervención</span>
+                            <span>$85.000</span>
+                        </div>
+
+                        <button class="view" type="button">
+                            Ver pieza ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product"
+                    data-category="chaquetas"
+                    data-name="Chaqueta Archivo"
+                    data-price="195000"
+                    data-description="Una chaqueta de carácter experimental, creada mediante la combinación de prendas y materiales existentes."
+                    data-image="img/chaqueta2.png">
+
+                    <div class="product-visual">
+                        <span class="tag">EDICIÓN ÚNICA</span>
+                        <img src="img/buzo.jpeg"
+                             alt="Chaqueta Archivo"
+                             class="shop-product-image">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-name">Chaqueta Archivo</div>
+
+                        <div class="product-meta">
+                            <span>Chaquetas / Rework</span>
+                            <span>$195.000</span>
+                        </div>
+
+                        <button class="view" type="button">
+                            Ver pieza ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product"
+                    data-category="accesorios"
+                    data-name="Accsesorios"
+                    data-price="65000"
+                    data-description="Accesorio confeccionado a partir de materiales recuperados. Su combinación de texturas hace que cada pieza tenga un carácter diferente."
+                    data-image="img/bolso1.png">
+
+                    <div class="product-visual">
+                        <span class="tag">RECUPERADO</span>
+                        <img src="img/acseosiros.jpeg"
+                             alt="acseosiros"
+                             class="shop-product-image">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-name">Acseosiros</div>
+
+                        <div class="product-meta">
+                            <span>Accesorios / Rework</span>
+                            <span>$65.000</span>
+                        </div>
+
+                        <button class="view" type="button">
+                            Ver pieza ↗
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="shop-disclaimer">
+                * Los nombres, precios e imágenes del catálogo son ejemplos
+                editables. Sustitúyelos por los datos reales de tus prendas.
+            </p>
+
+        </section>
+
+        <!-- FILOSOFÍA -->
+        <section class="shop-manifesto">
+
+            <div class="eyebrow">02 / Nuestra forma de vestir</div>
+
+            <h2>
+                NO SIGAS
+                <br>
+                PRODUCIENDO.
+                <br>
+                <em>REINTERPRETA.</em>
+            </h2>
+
+            <div class="shop-manifesto-bottom">
+                <p>
+                    Elegir una prenda renovada es reconocer que los
+                    materiales tienen más de una vida. En ONIRIKO,
+                    las marcas, las costuras y las diferencias
+                    forman parte de la identidad.
+                </p>
+
+                <a href="nosotros.html" class="btn">
+                    Conoce nuestra historia ↗
+                </a>
+            </div>
+
+        </section>
+
+        <!-- CONTACTO -->
+        <section class="shop-contact">
+
+            <div>
+                <div class="eyebrow">03 / ¿Te interesa una pieza?</div>
+
+                <h2>
+                    HAZLA
+                    <br>
+                    TUYA.
+                </h2>
+            </div>
+
+            <div class="shop-contact-copy">
+                <p>
+                    ¿Encontraste algo para ti? Escríbenos para consultar
+                    disponibilidad, tallas y detalles de la prenda.
+                </p>
+
+                <a href="contacto.html" class="btn primary">
+                    Hablemos ↗
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span>ONIRIKO. / Bogotá, Colombia</span>
+        <span>Ropa urbana · piezas únicas · memoria</span>
+    </footer>
+
+    <!-- MODAL DE PRODUCTO -->
+    <div class="modal" id="productModal" aria-hidden="true">
+
+        <div class="modal-card shop-modal-card">
+
+            <button class="close" id="modalClose"
+                    aria-label="Cerrar">×</button>
+
+            <div class="eyebrow">PIEZA RENOVADA / ONIRIKO</div>
+
+            <div class="shop-modal-grid">
+
+                <div class="shop-modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+
+                <div class="shop-modal-info">
+                    <h3 id="modalName"></h3>
+                    <div class="price" id="modalPrice"></div>
+                    <p id="modalDescription"></p>
+
+                    <a href="contacto.html"
+                       class="btn primary">
+                        Consultar disponibilidad ↗
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="ropa.js"></script>
+</body>
+</html>

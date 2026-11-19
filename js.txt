@@ -1,0 +1,375 @@
+/* =====================================================
+   PRODUCTOS
+===================================================== */
+
+const products = [
+
+    {
+        name: 'Camisa reconstruida “Memoria”',
+        cat: 'camisas',
+        price: '$149.000',
+
+        desc:
+            'Camisa oversized intervenida con paneles de tela contrastantes, costuras expuestas y gráfico abstracto inspirado en geometrías ancestrales.'
+    },
+
+    {
+        name: 'Chaqueta intervenida “Raíz”',
+        cat: 'chaquetas',
+        price: '$289.000',
+
+        desc:
+            'Chaqueta de trabajo reconstruida con parches textiles y composición gráfica irregular. Cada pieza presenta variaciones.'
+    },
+
+    {
+        name: 'Pantalón patchwork “Territorio”',
+        cat: 'pantalones',
+        price: '$219.000',
+
+        desc:
+            'Denim intervenido con bloques de distintos tonos, cortes y costuras visibles para una silueta urbana alternativa.'
+    },
+
+    {
+        name: 'Camisa oversized “Origen”',
+        cat: 'camisas',
+        price: '$139.000',
+
+        desc:
+            'Base amplia con intervención frontal y detalles textiles aplicados a mano.'
+    },
+
+    {
+        name: 'Chaqueta denim “Renacer”',
+        cat: 'chaquetas',
+        price: '$279.000',
+
+        desc:
+            'Denim reutilizado, desgastes conservados y nuevos paneles que convierten las marcas de uso en parte del diseño.'
+    },
+
+    {
+        name: 'Pantalón intervenido “Huella”',
+        cat: 'pantalones',
+        price: '$229.000',
+
+        desc:
+            'Pantalón reconstruido con piezas de diferentes prendas y una composición de costuras que recorre la silueta.'
+    },
+
+    {
+        name: 'Bolso de retazos',
+        cat: 'accesorios',
+        price: '$89.000',
+
+        desc:
+            'Accesorio construido a partir de sobrantes textiles y piezas recuperadas. No existen dos iguales.'
+    },
+
+    {
+        name: 'Accesorio textil “Rastro”',
+        cat: 'accesorios',
+        price: '$49.000',
+
+        desc:
+            'Pieza pequeña de uso cotidiano construida con fragmentos textiles recuperados y gráfica experimental.'
+    }
+
+];
+
+
+/* =====================================================
+   CONTENEDOR DE PRODUCTOS
+===================================================== */
+
+const grid =
+    document.getElementById('products');
+
+
+/* =====================================================
+   RENDERIZAR PRODUCTOS
+===================================================== */
+
+function render(filter = 'all') {
+
+    const filteredProducts =
+        products.filter(
+            product =>
+                filter === 'all' ||
+                product.cat === filter
+        );
+
+
+    grid.innerHTML =
+        filteredProducts.map(
+            (product) => {
+
+                const originalIndex =
+                    products.indexOf(product);
+
+                return `
+
+                    <article
+                        class="product"
+                        data-cat="${product.cat}"
+                    >
+
+                        <span class="tag">
+                            ${product.cat}
+                        </span>
+
+
+                        <div class="product-visual">
+
+                            <div class="product-photo-placeholder">
+
+                                <span>
+                                    [ IMAGEN ${originalIndex + 1} ]
+                                </span>
+
+                                <!--
+                                PARA PONER LA IMAGEN:
+
+                                images/camisas-1.jpg
+                                images/chaquetas-2.jpg
+                                etc.
+                                -->
+
+                                <code>
+                                    &lt;img src="images/${product.cat}-${originalIndex + 1}.jpg" alt="${product.name}"&gt;
+                                </code>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <div class="product-name">
+                                ${product.name}
+                            </div>
+
+
+                            <div class="product-meta">
+
+                                <span>
+                                    ${product.price}
+                                </span>
+
+                                <span>
+                                    pieza única
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="view"
+                                data-index="${originalIndex}"
+                            >
+                                Ver pieza ↗
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            }
+        ).join('');
+
+
+    /* BOTONES DE PRODUCTOS */
+
+    document
+        .querySelectorAll('.view')
+        .forEach(button => {
+
+            button.onclick = () => {
+
+                const product =
+                    products[button.dataset.index];
+
+                openModal(product);
+
+            };
+
+        });
+
+}
+
+
+/* Render inicial */
+
+render();
+
+
+/* =====================================================
+   FILTROS
+===================================================== */
+
+document
+    .querySelectorAll('.filter')
+    .forEach(button => {
+
+        button.onclick = () => {
+
+            document
+                .querySelectorAll('.filter')
+                .forEach(item =>
+                    item.classList.remove('active')
+                );
+
+
+            button.classList.add('active');
+
+
+            render(
+                button.dataset.filter
+            );
+
+        };
+
+    });
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+const modal =
+    document.getElementById('modal');
+
+
+const modalName =
+    document.getElementById('modalName');
+
+
+const modalPrice =
+    document.getElementById('modalPrice');
+
+
+const modalDesc =
+    document.getElementById('modalDesc');
+
+
+function openModal(product) {
+
+    modalName.textContent =
+        product.name;
+
+    modalPrice.textContent =
+        product.price;
+
+    modalDesc.textContent =
+        product.desc;
+
+    modal.classList.add('show');
+
+}
+
+
+/* CERRAR */
+
+document
+    .getElementById('close')
+    .onclick = () => {
+
+        modal.classList.remove('show');
+
+    };
+
+
+/* Cerrar haciendo clic afuera */
+
+modal.onclick = event => {
+
+    if (event.target === modal) {
+
+        modal.classList.remove('show');
+
+    }
+
+};
+
+
+/* =====================================================
+   AGREGAR A BOLSA
+===================================================== */
+
+document
+    .getElementById('modalBag')
+    .onclick = () => {
+
+        modal.classList.remove('show');
+
+        showToast(
+            'Pieza agregada a tu bolsa.'
+        );
+
+    };
+
+
+/* =====================================================
+   BOLSA
+===================================================== */
+
+document
+    .getElementById('bag')
+    .onclick = () => {
+
+        showToast(
+            'Tu bolsa está lista para nuevas piezas.'
+        );
+
+    };
+
+
+/* =====================================================
+   MENSAJES
+===================================================== */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById('toast');
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add('show');
+
+
+    setTimeout(() => {
+
+        toast.classList.remove('show');
+
+    }, 2600);
+
+}
+
+
+/* =====================================================
+   FORMULARIO
+===================================================== */
+
+document
+    .getElementById('contactForm')
+    .onsubmit = event => {
+
+        event.preventDefault();
+
+
+        event.target.reset();
+
+
+        showToast(
+            'Mensaje enviado. Gracias por escribirnos.'
+        );
+
+    };

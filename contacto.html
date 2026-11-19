@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | ONIRIKO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contacto.css">
+    <link rel="stylesheet" href="animaciones.css">
+    <script src="animaciones.js" defer></script>
+</head>
+<body>
+
+    <!-- NAV PRINCIPAL -->
+   <header class="nav">
+
+        <a class="logo" href="guache.html">
+            <span class="logo-mark-placeholder"><img src="img/onrirko sant-02.png" alt="onrirko sant logo-02"></span>
+            ONIRIKO.
+        </a>
+        
+        
+
+        <nav class="navlinks">
+            <a href="guache.html">Inicio</a>
+<a href="ropa.html">Ropa</a>           
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <button class="bag" id="bag" aria-label="Bolsa">
+            <span>◒</span>
+        </button>
+
+    </header>
+
+    <!-- CONTACTO -->
+    <main class="contact-page">
+
+        <section class="contact-intro">
+            <p class="eyebrow">ONIRIKO / HABLEMOS</p>
+
+            <h1>HAGAMOS<br><span>CONTACTO.</span></h1>
+
+            <p>
+                ¿Tienes alguna pregunta, propuesta o idea para compartir?
+                Completa el formulario y cuéntanos qué tienes en mente.
+            </p>
+        </section>
+
+        <section class="contact-container">
+
+            <div class="contact-info">
+                <p class="section-label">ESTAMOS PARA ESCUCHARTE</p>
+                <h2>TU IDEA<br>TAMBIÉN<br>HACE PARTE.</h2>
+
+                <p>
+                    En ONIRIKO creemos en las ideas que transforman.
+                    Escríbenos para resolver tus dudas o explorar
+                    nuevas posibilidades juntos.
+                </p>
+
+                <div class="contact-note">
+                    MODA URBANA · CREATIVIDAD · REUTILIZACIÓN
+                </div>
+            </div>
+
+            <form class="contact-form"
+                  action="https://formsubmit.co/tu-correo@ejemplo.com"
+                  method="POST">
+
+                <input type="hidden" name="_subject"
+                       value="Nuevo mensaje desde la web de ONIRIKO">
+
+                <input type="hidden" name="_captcha" value="true">
+
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-field">
+                    <label for="nombre">NOMBRE COMPLETO *</label>
+                    <input type="text" id="nombre" name="nombre"
+                           placeholder="Escribe tu nombre"
+                           autocomplete="name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="correo">CORREO ELECTRÓNICO *</label>
+                    <input type="email" id="correo" name="correo"
+                           placeholder="tucorreo@ejemplo.com"
+                           autocomplete="email" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="asunto">ASUNTO *</label>
+                    <select id="asunto" name="asunto" required>
+                        <option value="" disabled selected>
+                            Selecciona un asunto
+                        </option>
+                        <option value="Consulta sobre prendas">
+                            Consulta sobre prendas
+                        </option>
+                        <option value="Colaboraciones">
+                            Colaboraciones
+                        </option>
+                        <option value="Sostenibilidad">
+                            Sostenibilidad
+                        </option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="mensaje">TU MENSAJE *</label>
+                    <textarea id="mensaje" name="mensaje"
+                              rows="5"
+                              placeholder="Cuéntanos qué tienes en mente..."
+                              required></textarea>
+                </div>
+
+                <label class="privacy-check">
+                    <input type="checkbox" name="acepta_contacto"
+                           value="Sí" required>
+                    <span>Acepto que ONIRIKO utilice estos datos para
+                    responder a mi solicitud.</span>
+                </label>
+
+                <button type="submit" class="btn primary submit-btn">
+                    Enviar mensaje ↗
+                </button>
+
+                <p class="form-footnote">
+                    * Campos obligatorios.
+                </p>
+            </form>
+
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="contact-footer">
+        <a class="logo" href="guache.html">ONIRIKO.</a>
+        <span>MODA URBANA · CREATIVIDAD · REUTILIZACIÓN</span>
+        <a href="guache.html">Volver al inicio ↑</a>
+    </footer>
+
+</body>
+</html>

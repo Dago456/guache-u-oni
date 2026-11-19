@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+ 
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Adds a soft background color */
+}
+ 
+/* Headers */
+h3 {
+    text-align: center; /* Changed 'content' to 'center' for proper alignment */
+    color: black;
+}
+ 
+/* Logo */
+#Logo {
+    height: 228px;
+    margin: auto;
+    display: block; /* Centers the logo */
+}
+ 
+/* Boxes */
+.cajas {
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #FFF682; /* Matches the yellow border */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+ 
+/* Specific Sections */
+#por {
+    text-align: center;
+    height: 1072px;
+    background-color: #f4f4f4; /* Light background for visual separation */
+}
+ 
+#ilustracion,
+#ilustracion1,
+#img4,
+#car,
+#img6789 {
+    text-align: center;
+    padding: 20px;
+}
+ 
+/* Individual Section Heights */
+#ilustracion {
+    height: 946px;
+}
+ 
+#ilustracion1 {
+    height: 953px;
+}
+ 
+#img4 {
+    height: 886px;
+}
+ 
+#car {
+    height: 1724px;
+}
+ 
+#img6789 {
+    height: 729px;
+}
+ 
+/* Relleno Section */
+.relleno {
+    height: 20px;
+    padding-top: 20px;
+    background-color: #fff; /* Matches the box background */
+}
+ 
+/* Navigation and Lists */
+ul li {
+    display: inline-block; /* Updated for modern syntax */
+    padding: 0px 10px;
+    height: 100px;
+}
+ 
+/* Miscellaneous */
+#relleno {
+    text-align: center;
+    color: white;
+}
+ 
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #ilustracion,
+    #ilustracion1,
+    #img4,
+    #car,
+    #img6789 {
+        height: auto; /* Makes the sections adjust automatically on smaller screens */
+    }
+ 
+    .cajas {
+        padding: 15px;
+    }
+ 
+    ul li {
+        display: block; /* Stack navigation items vertically on smaller screens */
+        height: auto;
+        padding: 10px 0;
+    }
+}
